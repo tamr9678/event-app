@@ -1,0 +1,12 @@
+@import "./reset";
+@import "./common";
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sriracha&display=swap');
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+
+/* module */
+@import "./module/header";
+
+/* events */
+@import "./events/index";
