@@ -15,14 +15,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(user_params)
     @user.build_profile(user_params[:profile_attributes])
     if @user.valid?
+      @user.save
       render :complete and return
     else
       @user.errors
       @errors = @user.errors.full_messages 
       render :new, params: @errors and return
     end
-    @user.save
-    render :complete
   end
 
   def complete

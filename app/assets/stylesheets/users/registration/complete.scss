@@ -1,0 +1,36 @@
+.complete{
+  height: 300px;
+  width: 700px;
+  background-color: white;
+  padding: 10px;
+  margin: 0 auto;
+  &__title{
+    display: inline-block;
+    height: 60px;
+    width: 100%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 25px;
+    border-bottom: 2px solid  #1E90FF;
+    box-sizing: border-box;
+  }
+  &__message{
+    width: 100%;
+    line-height: 40px;
+    font-size: 20px;
+    text-align: center;
+    padding: 50px 10px;
+  }
+  &__btn{
+    display: block;
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px 20px;
+    color: white;
+    text-align: center;
+    border-radius: 5px;
+    background-color: #1E90FF;
+    box-sizing: border-box;
+    text-decoration: none;
+  }
+}
