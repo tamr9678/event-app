@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   end
 
   resources :events , only: [:index]
-  resources :user, only: [:show]
+  resources :users, only: [:show]
 end
