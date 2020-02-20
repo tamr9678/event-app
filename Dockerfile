@@ -7,6 +7,6 @@ RUN mkdir /event-app
 WORKDIR /event-app
 ADD Gemfile /event-app/Gemfile
 ADD Gemfile.lock /event-app/Gemfile.lock
-RUN bundle install
+RUN gem install bundler -v 2.1.1 && bundle install
 ADD . /event-app
 RUN mkdir -p tmp/sockets
