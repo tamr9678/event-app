@@ -1,0 +1,8 @@
+ja:
+  activerecord:
+    attributes:
+        user: 
+          nickname: ニックネーム
+        profile:
+          place: 場所
+          introduction: 自己紹介

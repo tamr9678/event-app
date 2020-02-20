@@ -5,7 +5,7 @@
     .user-form__contents
       = form_for @user, url: create_path, method: :post do |f|
         .devise-error
-        = render 'devise/shared/error_messages', model: f.object
+          = render 'devise/shared/error_messages', model: f.object
         .user-form__contents__content
           .user-form__contents__content__title
             ニックネーム
@@ -22,7 +22,7 @@
             = f.text_field :email, autofocus: true, autocomplete: "email", class: "user-content-form", placeholder: "example@email.com"
         .user-form__contents__content
           .user-form__contents__content__title
-            パスワード
+            パスワード (英数字両方含む7字以上)
             .required
               必須
           .user-form__contents__content__form
