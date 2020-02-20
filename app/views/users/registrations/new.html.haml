@@ -1,0 +1,45 @@
+.sub-container
+  .user-form
+    .user-form__title
+      ユーザー新規登録
+    .user-form__contents
+      = form_for @user, url: create_path, method: :post do |f|
+        .devise-error
+          = render 'devise/shared/error_messages', model: f.object
+        .user-form__contents__content
+          .user-form__contents__content__title
+            ニックネーム
+            .required
+              必須
+          .user-form__contents__content__form
+            = f.text_field :nickname, autofocus: true, autocomplete: "nickname", class: "user-content-form", placeholder: "例) ニックネーム"
+        .user-form__contents__content
+          .user-form__contents__content__title
+            メールアドレス
+            .required
+              必須
+          .user-form__contents__content__form
+            = f.text_field :email, autofocus: true, autocomplete: "email", class: "user-content-form", placeholder: "example@email.com"
+        .user-form__contents__content
+          .user-form__contents__content__title
+            パスワード (英数字両方含む7字以上)
+            .required
+              必須
+          .user-form__contents__content__form
+            = f.text_field :password, autocomplete: "new-password", class: "user-content-form", placeholder: "7文字以上の半角英数字"
+        = f.fields_for :profile do |fin|
+          .user-form__contents__content
+            .user-form__contents__content__title
+              場所
+              .required.required--not
+                任意
+            .user-form__contents__content__form
+              = fin.text_field :place, class: "user-content-form", placeholder: "東京 渋谷区"
+          .user-form__contents__content
+            .user-form__contents__content__title
+              自己紹介
+              .required.required--not
+                任意
+            .user-form__contents__content__form
+              = fin.text_area :introduction, size: "60x5", class: "user-content-form user-content-form--text", placeholder: "プログラミング学習中です。よろしくお願いします！！"
+        = f.submit "登録", class: "user-content-btn"
