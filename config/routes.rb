@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   end
 
   resources :events , only: [:index]
+  resources :users, only: [:show] do
+    collection do
+      get 'signout'
+    end
+  end
 end

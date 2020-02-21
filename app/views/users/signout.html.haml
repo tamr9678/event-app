@@ -1,0 +1,9 @@
+= render 'shared/header'
+.container
+  .u-main
+    = render 'shared/side-menu'
+    .u-main__contents
+      .u-main__contents__name
+        ログアウト
+      .u-main__contents__logout
+        = link_to "ログアウトする", destroy_user_session_path, class: "signout-btn", method: :delete

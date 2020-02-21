@@ -1,0 +1,19 @@
+= render 'shared/header'
+.container
+  .u-main
+    = render 'shared/side-menu'
+    .u-main__contents
+      .u-main__contents__name
+        = @user.nickname
+      .u-main__contents__info
+        .u-main__contents__info__place
+          - if @user.profile.place.present?
+            = icon('fas', 'map-marker-alt')
+            = @user.profile.place
+          - else
+            (未設定)
+        .u-main__contents__info__intro
+          - if @user.profile.introduction.present?
+            = simple_format(@user.profile.introduction)
+          - else
+            （自己紹介は未設定です）

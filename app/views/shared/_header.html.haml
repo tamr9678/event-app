@@ -8,5 +8,11 @@
         = link_to "TOP", events_path, class: "header-menu"
       %li.menu
         = link_to "SERCH", "#", class: "header-menu"
-      %li.menu
-        = link_to "MY PAGE", "#", class: "header-menu"
+      - if user_signed_in?
+        %li.menu
+          = link_to "MY PAGE", user_path(current_user.id), class: "header-menu"
+      - else
+        %li.menu
+          = link_to "SIGN IN", new_user_session_path, class: "header-menu"
+        %li.menu
+          = link_to "SIGN UP", new_user_registration_path, class: "header-menu"

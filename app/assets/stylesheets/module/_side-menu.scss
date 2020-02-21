@@ -1,0 +1,16 @@
+.side-menu{
+  height: 500px;
+  width: 300px;
+  margin: 20px;
+  background-color: gray;
+  &__content{
+    height: 50px;
+    width: 100%;
+    line-height: 50px;
+    text-align: center;
+    &__btn{
+      text-decoration: none;
+      color: white;
+    }
+  }
+}
