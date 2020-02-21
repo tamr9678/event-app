@@ -1,0 +1,29 @@
+.us-main{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  &__contents{
+    height: 500px;
+    width: calc(100vw - 340px);
+    margin: 20px;
+    &__name{
+      display: block;
+      height: 40px;
+      width: 700px;
+      font-size: 30px;
+      line-height: 40px;
+      padding-left: 10px;
+      border-bottom: 3px solid $maincolor;
+    }
+    &__info{
+      width: 100%;
+      padding: 10px;
+      &__place{
+        
+      }
+      &__intro{
+        margin-top: 7px;
+      }
+    }
+  }
+}

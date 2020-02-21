@@ -1,0 +1,6 @@
+.side-menu
+  %ul
+    %li.side-menu__content
+      = link_to "プロフィール", user_path(current_user.id), class: "side-menu__content__btn", method: :get
+    %li.side-menu__content
+      = link_to "ログアウト", 

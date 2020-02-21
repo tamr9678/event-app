@@ -1,5 +1,6 @@
 @import "./reset";
 @import "./common";
+@import "./variables";
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP|Sriracha&display=swap');
 @import "font-awesome-sprockets";
 @import "font-awesome";
@@ -7,6 +8,7 @@
 
 /* module */
 @import "./module/header";
+@import "./module/side-menu";
 
 /* events */
 @import "./events/index";
@@ -14,3 +16,4 @@
 /* users */
 @import "./users/registration/new";
 @import "./users/registration/complete";
+@import "./users/show"
