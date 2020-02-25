@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   def index
-    @current_events = Event.all
+    @current_events = Event.order(created_at: :desc).limit(5)
   end
 
   def new
