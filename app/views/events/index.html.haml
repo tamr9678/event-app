@@ -14,7 +14,7 @@
                 = link_to "#{current_event.title}", "#"
               .main__event__contents__content__detail__date
                 = icon('far', 'clock')
-                = current_event.event_start_at
+                = current_event.event_start_at.strftime("%Y-%m-%d %H:%M")
               .main__event__contents__content__detail__place
                 = icon('fas', 'map-marker-alt')
                 = current_event.place
