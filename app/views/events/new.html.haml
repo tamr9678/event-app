@@ -4,7 +4,7 @@
     .event-form__title
       新規イベント登録
     .event-form__contents
-      = form_for @event, url: create_path, method: :post do |f|
+      = form_for @event, url: events_path, method: :post do |f|
         .event-form__error
           -# = render 'devise/shared/error_messages', model: f.object
         .event-form__contents__content
