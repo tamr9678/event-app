@@ -4,7 +4,7 @@
       ユーザー新規登録
     .user-form__contents
       = form_for @user, url: create_path, method: :post do |f|
-        .devise-error
+        .form-error
           = render 'devise/shared/error_messages', model: f.object
         .user-form__contents__content
           .user-form__contents__content__title

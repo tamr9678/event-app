@@ -8,8 +8,16 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = Event.create(event_params)
-    redirect_to root_path
+    @event = Event.new(event_params)
+    if @event.valid?
+      @event.save
+      redirect_to root_path and return
+    else
+      @event.errors
+      @errors = @event.errors.full_messages 
+      render :new, params: @errors and return
+    end
+
   end
 
   private

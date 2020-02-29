@@ -5,8 +5,8 @@
       新規イベント登録
     .event-form__contents
       = form_for @event, url: events_path, method: :post do |f|
-        .event-form__error
-          -# = render 'devise/shared/error_messages', model: f.object
+        .form-error
+          = render 'shared/error_messages'
         .event-form__contents__content
           .event-form__contents__content__title
             イベント名
@@ -17,8 +17,8 @@
         .event-form__contents__content
           .event-form__contents__content__title
             画像
-            .required
-              必須
+            .required.required--not
+              任意
           .event-form__contents__content__form
             = f.file_field :img
         .event-form__contents__content
