@@ -8,7 +8,10 @@
         - @current_events.each do |current_event|
           .main__event__contents__content
             .main__event__contents__content__image
-              = image_tag '/images/rails-logo.png', size: "120x90"
+              - if current_event.img.present?
+                = image_tag current_event.img.url , size: "120x90"
+              - else
+                = image_tag '/images/rails-logo.png', size: "120x90"
             .main__event__contents__content__detail
               .main__event__contents__content__detail__title
                 = link_to "#{current_event.title}", "#"
