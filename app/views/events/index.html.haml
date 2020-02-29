@@ -14,7 +14,7 @@
                 = image_tag '/images/rails-logo.png', size: "120x90"
             .main__event__contents__content__detail
               .main__event__contents__content__detail__title
-                = link_to "#{current_event.title}", "#"
+                = link_to "#{current_event.title}", event_path(current_event.id)
               .main__event__contents__content__detail__date
                 = icon('far', 'clock')
                 = current_event.event_start_at.strftime("%Y-%m-%d %H:%M")

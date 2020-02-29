@@ -17,7 +17,10 @@ class EventsController < ApplicationController
       @errors = @event.errors.full_messages 
       render :new, params: @errors and return
     end
+  end
 
+  def show
+    @event = Event.find(params[:id])
   end
 
   private
