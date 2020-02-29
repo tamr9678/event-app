@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_20_120611) do
+ActiveRecord::Schema.define(version: 2020_02_25_192331) do
+
+  create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "place", null: false
+    t.datetime "event_start_at", null: false
+    t.datetime "event_end_at", null: false
+    t.datetime "expire_at", null: false
+    t.text "discription", null: false
+    t.integer "capacity", null: false
+    t.integer "organizer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "img"
+  end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "introduction"

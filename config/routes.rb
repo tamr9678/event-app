@@ -11,7 +11,7 @@ Rails.application.routes.draw do
     get 'complete', to: 'users/registrations#complete'
   end
 
-  resources :events , only: [:index]
+  resources :events , only: [:index, :new, :create]
   resources :users, only: [:show] do
     collection do
       get 'signout'

@@ -49,6 +49,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'erb2haml'
+  gem 'pry-byebug'
+  gem 'pry-rails'
 end
 
 group :test do
@@ -72,4 +74,5 @@ gem 'rails-i18n', '~> 5.1'
 gem 'devise'
 gem 'devise-i18n'
 gem 'devise-i18n-views'
+gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 
