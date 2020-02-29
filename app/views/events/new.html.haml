@@ -16,6 +16,13 @@
             = f.text_field :title, autofocus: true, autocomplete: "title", class: "event-content-form", placeholder: "プログラミング勉強会"
         .event-form__contents__content
           .event-form__contents__content__title
+            画像
+            .required
+              必須
+          .event-form__contents__content__form
+            = f.file_field :img
+        .event-form__contents__content
+          .event-form__contents__content__title
             場所
             .required
               必須
