@@ -19,24 +19,40 @@
         .event-show__main__info__content
           場所:
           = @event.place
+        .event-show__main__info__content
+          定員:
+          = @event.capacity
+          人
         .event-show__main__info__discription
           = simple_format(@event.discription)
     .event-show__join
-      .event-show__join__btn
-        = link_to "参加する", "#"
-      .event-show__join__btn
-        = link_to "気になる！", "#"
+      - if user_signed_in?
+        - if !Participant.exists?(user_id:current_user.id,event_id:@event.id)
+          .event-show__join__btn
+            = link_to "参加する", participants_path(event_id: @event.id), method: :post
+        - else
+          .event-show__join__btn
+            = link_to "参加取り消し", participants_path(event_id: @event.id), method: :delete 
+        .event-show__join__btn
+          = link_to "気になる！", "#"
+      -else
+        .event-show__join__not-signin
+          参加・お気に入りするには
+          = link_to "サインイン", new_user_session_path
+          もしくは
+          = link_to "新規登録", new_user_registration_path
       .event-show__join__list
         .event-show__join__list__title
           参加者リスト
-        %ul
-          %li.event-show__join__list__participants
-            = link_to "user1", "#"
-          %li.event-show__join__list__participants
-            = link_to "user2", "#"
-          %li.event-show__join__list__participants
-            = link_to "user3", "#"
-          %li.event-show__join__list__participants
-            = link_to "user4", "#"
-          %li.event-show__join__list__participants
-            = link_to "user5", "#"
+          (
+          = @participants.count
+          /
+          = @event.capacity
+          )
+        - if @participants.present?
+          -@participants.each do |participant|
+            %ul
+              %li.event-show__join__list__participants
+                = link_to "#{participant.user.nickname}", "#"
+        - else
+          参加者はまだいません
