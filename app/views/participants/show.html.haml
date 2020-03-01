@@ -23,7 +23,12 @@
                 .main__event__contents__content__detail__place
                   = icon('fas', 'map-marker-alt')
                   = event.place
-                .main__event__contents__content__detail__capacity
-                  = icon('fas', 'user-friends')
-                  18/
-                  = event.capacity
+                .main__event__contents__content__detail__counter
+                  .main__event__contents__content__detail__counter__capacity
+                    = icon('fas', 'user-friends')
+                    = event.participants.count
+                    \/
+                    = event.capacity
+                  .main__event__contents__content__detail__counter__capacity
+                    = icon('fas', 'star')
+                    = event.favorites.count
