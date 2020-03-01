@@ -1,0 +1,80 @@
+.event-show{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  &__main{
+    height: 100%;
+    width: 600px;
+    padding: 10px 50px;
+    &__img{
+      height:350px;
+      width: 500px;
+      margin: 20px auto 0;
+    }
+    &__title{
+      display: block;
+      height: 60px;
+      width: 600px;
+      line-height: 60px;
+      font-size: 40px;
+      border-bottom: solid $maincolor 3px;
+      padding-left: 10px;
+    }
+    &__info{
+      display: block;
+      width: 600px;
+      background-color: $textboxcolor;
+      margin-top: 20px;
+      padding: 10px;
+      font-size: 17px;
+      &__content{
+        height: 30px;
+        line-height: 30px;
+      }
+      &__discription{
+        margin-top: 13px;
+        font-size: 15px;
+        line-height: 20px;
+      }
+    }
+  }
+  &__join{
+    height: 700px;
+    width: 300px;
+    margin: 50px 20px;
+    &__btn{
+      width: 200px;
+      padding: 5px 20px;
+      margin: 10px auto;
+      font-size: 17px;
+      line-height: 25px;
+      text-align: center;
+      background-color: #1E90FF;
+      border-radius: 5px;
+      a{
+        color: white;
+        text-decoration: none;
+      }
+    }
+    &__list{
+      width: 200px;
+      margin: 30px auto;
+      &__title{
+        height: 30px;
+        width: 100%;
+        font-size: 20px;
+        line-height: 30px;
+        padding-left:10px;
+        border-bottom: solid black 2px;
+        margin-bottom: 10px;
+      }
+      &__participants{
+        height: 25px;
+        width: 100%;
+        line-height: 25px;
+        padding-left:10px;
+      }
+    }
+  }
+}
