@@ -9,4 +9,7 @@ class Event < ApplicationRecord
   validates :expire_at,      presence: true
   validates :discription,    presence: true, length: {maximum: 500}
   validates :capacity,       presence: true
+
+  # assosiation
+  belongs_to :organizer, class_name: "User"
 end

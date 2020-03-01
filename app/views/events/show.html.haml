@@ -1,0 +1,42 @@
+= render "shared/header"
+.container
+  .event-show
+    .event-show__main
+      .event-show__main__title
+        = @event.title
+      .event-show__main__img
+        - if @event.img.present?
+          = image_tag @event.img.url , size: "500x350"
+        - else
+          = image_tag '/images/rails-logo.png', size: "500x350"
+      .event-show__main__info
+        .event-show__main__info__content
+          主催:
+          = link_to "#{@event.organizer.nickname}", "#"
+        .event-show__main__info__content
+          開催日時:
+          = @event.event_start_at.strftime("%Y/%m/%d %H:%M")
+        .event-show__main__info__content
+          場所:
+          = @event.place
+        .event-show__main__info__discription
+          = simple_format(@event.discription)
+    .event-show__join
+      .event-show__join__btn
+        = link_to "参加する", "#"
+      .event-show__join__btn
+        = link_to "気になる！", "#"
+      .event-show__join__list
+        .event-show__join__list__title
+          参加者リスト
+        %ul
+          %li.event-show__join__list__participants
+            = link_to "user1", "#"
+          %li.event-show__join__list__participants
+            = link_to "user2", "#"
+          %li.event-show__join__list__participants
+            = link_to "user3", "#"
+          %li.event-show__join__list__participants
+            = link_to "user4", "#"
+          %li.event-show__join__list__participants
+            = link_to "user5", "#"

@@ -12,4 +12,5 @@ class User < ApplicationRecord
   # assosiation
   has_one :profile, dependent: :destroy
   accepts_nested_attributes_for :profile
+  has_many :organize_event, foreign_key: "organizer_id", class_name: "Event"
 end
