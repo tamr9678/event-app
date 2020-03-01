@@ -22,8 +22,12 @@
         .event-show__main__info__discription
           = simple_format(@event.discription)
     .event-show__join
-      .event-show__join__btn
-        = link_to "参加する", participants_path(event_id: @event.id), method: :post
+      - if !Participant.exists?(user_id:current_user.id,event_id:@event.id)
+        .event-show__join__btn
+          = link_to "参加する", participants_path(event_id: @event.id), method: :post
+      - else
+        .event-show__join__btn
+          = link_to "参加取り消し", participants_path(event_id: @event.id), method: :delete
       .event-show__join__btn
         = link_to "気になる！", "#"
       .event-show__join__list

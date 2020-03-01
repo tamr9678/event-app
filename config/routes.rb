@@ -18,4 +18,5 @@ Rails.application.routes.draw do
     end
   end
   resources :participants, only: [:create]
+  resource :participants, only: [:destroy]
 end
