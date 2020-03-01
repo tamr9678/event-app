@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   &__main{
     height: 100%;
     width: 600px;
@@ -55,6 +55,19 @@
       a{
         color: white;
         text-decoration: none;
+      }
+    }
+    &__not-signin{
+      height: 120px;
+      width: 250px;
+      text-align: center;
+      padding-top: 15px;
+      margin: 0 auto;
+      border: solid $maincolor 2px;
+      box-sizing: border-box;
+      a{
+        display: block;
+        margin: 5px auto;
       }
     }
     &__list{

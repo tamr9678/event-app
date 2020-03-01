@@ -22,14 +22,21 @@
         .event-show__main__info__discription
           = simple_format(@event.discription)
     .event-show__join
-      - if !Participant.exists?(user_id:current_user.id,event_id:@event.id)
+      - if user_signed_in?
+        - if !Participant.exists?(user_id:current_user.id,event_id:@event.id)
+          .event-show__join__btn
+            = link_to "参加する", participants_path(event_id: @event.id), method: :post
+        - else
+          .event-show__join__btn
+            = link_to "参加取り消し", participants_path(event_id: @event.id), method: :delete 
         .event-show__join__btn
-          = link_to "参加する", participants_path(event_id: @event.id), method: :post
-      - else
-        .event-show__join__btn
-          = link_to "参加取り消し", participants_path(event_id: @event.id), method: :delete
-      .event-show__join__btn
-        = link_to "気になる！", "#"
+          = link_to "気になる！", "#"
+      -else
+        .event-show__join__not-signin
+          参加・お気に入りするには
+          = link_to "サインイン", new_user_session_path
+          もしくは
+          = link_to "新規登録", new_user_registration_path
       .event-show__join__list
         .event-show__join__list__title
           参加者リスト
