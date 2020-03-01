@@ -50,8 +50,12 @@
           &__place{
             margin-top: 3px;
           }
-          &__capacity{
+          &__counter{
             margin-top: 3px;
+            &__capacity{
+              display: inline-block;
+              width: 100px;
+            }
           }
         }
       }

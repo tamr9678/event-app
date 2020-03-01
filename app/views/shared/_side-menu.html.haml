@@ -5,4 +5,6 @@
     %li.side-menu__content
       = link_to "参加予定", participant_path(current_user.id), class: "side-menu__content__btn", method: :get
     %li.side-menu__content
+      = link_to "お気に入り", favorite_path(current_user.id), class: "side-menu__content__btn", method: :get
+    %li.side-menu__content
       = link_to "ログアウト", signout_users_path, class: "side-menu__content__btn", method: :get
