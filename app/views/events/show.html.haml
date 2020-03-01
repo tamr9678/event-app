@@ -23,20 +23,16 @@
           = simple_format(@event.discription)
     .event-show__join
       .event-show__join__btn
-        = link_to "参加する", "#"
+        = link_to "参加する", participants_path(event_id: @event.id), method: :post
       .event-show__join__btn
         = link_to "気になる！", "#"
       .event-show__join__list
         .event-show__join__list__title
           参加者リスト
-        %ul
-          %li.event-show__join__list__participants
-            = link_to "user1", "#"
-          %li.event-show__join__list__participants
-            = link_to "user2", "#"
-          %li.event-show__join__list__participants
-            = link_to "user3", "#"
-          %li.event-show__join__list__participants
-            = link_to "user4", "#"
-          %li.event-show__join__list__participants
-            = link_to "user5", "#"
+        - if @participants.present?
+          -@participants.each do |participant|
+            %ul
+              %li.event-show__join__list__participants
+                = link_to "#{participant.user.nickname}", "#"
+        - else
+          参加者はまだいません
