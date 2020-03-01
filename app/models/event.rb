@@ -12,4 +12,6 @@ class Event < ApplicationRecord
 
   # assosiation
   belongs_to :organizer, class_name: "User"
+  has_many :users, thorough: :participants
+  has_many :participants
 end
