@@ -19,6 +19,10 @@
         .event-show__main__info__content
           場所:
           = @event.place
+        .event-show__main__info__content
+          定員:
+          = @event.capacity
+          人
         .event-show__main__info__discription
           = simple_format(@event.discription)
     .event-show__join
@@ -40,6 +44,11 @@
       .event-show__join__list
         .event-show__join__list__title
           参加者リスト
+          (
+          = @participants.count
+          /
+          = @event.capacity
+          )
         - if @participants.present?
           -@participants.each do |participant|
             %ul

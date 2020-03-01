@@ -23,7 +23,8 @@
                 = current_event.place
               .main__event__contents__content__detail__capacity
                 = icon('fas', 'user-friends')
-                18/
+                = current_event.participants.count
+                \/
                 = current_event.capacity
     .main__event
       .main__event__title
