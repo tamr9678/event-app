@@ -16,6 +16,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user.build_profile(user_params[:profile_attributes])
     if @user.valid?
       @user.save
+      sign_in(:user, @user)
       render :complete and return
     else
       @user.errors
