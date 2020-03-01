@@ -34,8 +34,11 @@
           .event-show__join__btn
             = link_to "参加取り消し", participants_path(event_id: @event.id), method: :delete
         .event-show__join__btn
-          = link_to "気になる！", favorites_path(event_id: @event.id), method: :post
-          気になっている人:
+          = link_to "お気に入り", favorites_path(event_id: @event.id), method: :post
+        .event-show__join__favorites
+          お気に入り:
+          = @favorites.count
+          件
       -else
         .event-show__join__not-signin
           参加・お気に入りするには

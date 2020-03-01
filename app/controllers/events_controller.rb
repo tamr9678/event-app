@@ -22,8 +22,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @participants = Participant.where(event_id: params[:id])
-    
-    
+    @favorites = Favorite.where(event_id: params[:id])
   end
 
   private
