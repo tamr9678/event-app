@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   end
   resources :participants, only: [:create, :show]
   resource :participants, only: [:destroy]
-  resources :favorites, only: [:create]
+  resources :favorites, only: [:create, :show]
   resource :favorites, only: [:destroy]
 end
