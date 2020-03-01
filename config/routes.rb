@@ -17,6 +17,6 @@ Rails.application.routes.draw do
       get 'signout'
     end
   end
-  resources :participants, only: [:create]
+  resources :participants, only: [:create, :show]
   resource :participants, only: [:destroy]
 end
