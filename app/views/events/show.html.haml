@@ -36,6 +36,7 @@
         - if !Favorite.exists?(user_id:current_user.id,event_id:@event.id)
           .event-show__join__btn
             = link_to "お気に入り", favorites_path(event_id: @event.id), method: :post
+            = icon('fas', 'star')
         - else
           .event-show__join__btn.event-show__join__btn--off
             = link_to "お気に入り解除", favorites_path(event_id: @event.id), method: :delete

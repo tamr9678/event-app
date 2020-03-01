@@ -21,11 +21,15 @@
               .main__event__contents__content__detail__place
                 = icon('fas', 'map-marker-alt')
                 = current_event.place
-              .main__event__contents__content__detail__capacity
-                = icon('fas', 'user-friends')
-                = current_event.participants.count
-                \/
-                = current_event.capacity
+              .main__event__contents__content__detail__counter
+                .main__event__contents__content__detail__counter__capacity
+                  = icon('fas', 'user-friends')
+                  = current_event.participants.count
+                  \/
+                  = current_event.capacity
+                .main__event__contents__content__detail__counter__capacity
+                  = icon('fas', 'star')
+                  = current_event.favorites.count
     .main__event
       .main__event__title
         人気イベント
