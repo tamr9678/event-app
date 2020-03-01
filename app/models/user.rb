@@ -15,4 +15,6 @@ class User < ApplicationRecord
   has_many :organize_event, foreign_key: "organizer_id", class_name: "Event"
   has_many :events, through: :participants
   has_many :participants
+  has_many :events, through: :favorites
+  has_many :favorites
 end
