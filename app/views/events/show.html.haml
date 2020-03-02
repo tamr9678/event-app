@@ -28,8 +28,19 @@
     .event-show__join
       - if user_signed_in?
         - if !Participant.exists?(user_id:current_user.id,event_id:@event.id)
-          .event-show__join__btn
-            = link_to "参加する", participants_path(event_id: @event.id), method: :post
+          - case @entry_status
+          - when 0 then
+            .event-show__join__btn.event-show__join__btn--off
+              イベント終了済み
+          - when 1 then
+            .event-show__join__btn.event-show__join__btn--off
+              参加締め切り
+          - when 2 then
+            .event-show__join__btn.event-show__join__btn--off
+              定員オーバー
+          - when 3 then
+            .event-show__join__btn
+              = link_to "参加する", participants_path(event_id: @event.id), method: :post
         - else
           .event-show__join__btn.event-show__join__btn--off
             = link_to "参加取り消し", participants_path(event_id: @event.id), method: :delete
