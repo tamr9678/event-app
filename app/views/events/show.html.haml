@@ -23,8 +23,12 @@
           定員:
           = @event.capacity
           人
+        .event-show__main__info__content
+          test:
+          = @event.latitude
         .event-show__main__info__discription
           = simple_format(@event.discription)
+      .event-show__main__map{ id: "map" }
     .event-show__join
       - if user_signed_in?
         - if !Participant.exists?(user_id:current_user.id,event_id:@event.id)

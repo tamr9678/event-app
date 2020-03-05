@@ -34,5 +34,7 @@ class Event < ApplicationRecord
   has_many :users, through: :participants
   has_many :favorites
   has_many :users, through: :favorites
+  geocoded_by :place
+  after_validation :geocode, if: :palace_changed?
 
 end

@@ -76,3 +76,7 @@ gem 'devise-i18n'
 gem 'devise-i18n-views'
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 
+# google map
+gem "gmaps4rails"
+gem "geocoder"
+
