@@ -10,6 +10,8 @@ class ParticipantsController < ApplicationController
   end
 
   def history
+    @events =Event.includes(:participants).where(participants: {user_id: current_user.id}).order(created_at: :desc)
+    @events.where!('event_start_at < ?', Time.current)
   end
 
   def destroy

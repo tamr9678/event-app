@@ -17,7 +17,11 @@ Rails.application.routes.draw do
       get 'signout'
     end
   end
-  resources :participants, only: [:create, :show]
+  resources :participants, only: [:create, :show] do
+    member do
+      get 'history'
+    end
+  end
   resource :participants, only: [:destroy]
   resources :favorites, only: [:create, :show]
   resource :favorites, only: [:destroy]
