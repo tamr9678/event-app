@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
     @current_events = Event.order(created_at: :desc).limit(5)
+    @popular_events = Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
   end
 
   def new
