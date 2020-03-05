@@ -1,0 +1,60 @@
+= render 'shared/header'
+.container
+  .event-form
+    .event-form__title
+      イベント編集
+    .event-form__contents
+      = form_for @event, url: event_path, method: :patch do |f|
+        .form-error
+          = render 'shared/error_messages'
+        .event-form__contents__content
+          .event-form__contents__content__title
+            イベント名
+            .required
+              必須
+          .event-form__contents__content__form
+            = f.text_field :title, autofocus: true, autocomplete: "title", class: "event-content-form", placeholder: "プログラミング勉強会"
+        .event-form__contents__content
+          .event-form__contents__content__title
+            画像
+            .required.required--not
+              任意
+          .event-form__contents__content__form
+            = f.file_field :img
+        .event-form__contents__content
+          .event-form__contents__content__title
+            場所
+            .required
+              必須
+          .event-form__contents__content__form
+            = f.text_field :place, autofocus: true, autocomplete: "place", class: "event-content-form", placeholder: "東京都千代田区千代田１−１"
+        .event-form__contents__content
+          .event-form__contents__content__title
+            開催日時
+            .required
+              必須
+          .event-form__contents__content__form
+            = f.datetime_select :event_start_at, {prompt:"--", use_month_numbers:true, start_year:Time.now.year, end_year:Time.now.year+1, date_separator:' / '}, {class: "event-content-form event-content-form--date"}
+        .event-form__contents__content
+          .event-form__contents__content__title
+            参加締め切り
+            .required
+              必須
+          .event-form__contents__content__form
+            = f.datetime_select :expire_at, {prompt:"--", use_month_numbers:true, start_year:Time.now.year, end_year:Time.now.year+1, date_separator:' / '}, {class: "event-content-form event-content-form--date"}
+        .event-form__contents__content
+          .event-form__contents__content__title
+            説明文
+            .required
+              必須
+          .event-form__contents__content__form
+            = f.text_area :discription, autofocus: true, autocomplete: "discription", class: "event-content-form event-content-form--text", placeholder: "勉強会の説明文"
+        .event-form__contents__content
+          .event-form__contents__content__title
+            定員
+            .required
+              必須
+          .event-form__contents__content__form
+            = f.number_field :capacity, autofocus: true, autocomplete: "capacity", class: "event-content-form event-content-form--number"
+            人
+        = f.submit "イベントを登録", class: "event-content-btn"

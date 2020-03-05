@@ -79,4 +79,5 @@ gem 'carrierwave', '~> 1.3', '>= 1.3.1'
 # google map
 gem "gmaps4rails"
 gem "geocoder"
+gem 'gon'
 

@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   mount_uploader :img, ImgUploader
-
+  geocoded_by :place
+  after_validation :geocode, if: :place_changed?
+  
   # validation
   validates :title,          presence: true, length: {maximum: 50}
   validates :place,          presence: true, length: {maximum: 50}
@@ -34,7 +36,6 @@ class Event < ApplicationRecord
   has_many :users, through: :participants
   has_many :favorites
   has_many :users, through: :favorites
-  geocoded_by :place
-  after_validation :geocode, if: :palace_changed?
+
 
 end

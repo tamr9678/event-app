@@ -26,6 +26,7 @@
       width: 600px;
       background-color: $textboxcolor;
       margin-top: 20px;
+      margin-bottom: 30px;
       padding: 10px;
       font-size: 17px;
       &__content{
@@ -34,8 +35,13 @@
       }
       &__discription{
         margin-top: 13px;
-        font-size: 15px;
-        line-height: 20px;
+        font-size: 17px;
+        line-height: 23px;
+      }
+      #map{
+        height: 300px;
+        width: 400px;
+        margin-left: 10px;
       }
     }
   }
@@ -98,8 +104,4 @@
       }
     }
   }
-}
-#map{
-  height: 500px;
-  width: 600px;
 }

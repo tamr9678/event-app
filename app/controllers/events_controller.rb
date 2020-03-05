@@ -20,11 +20,23 @@ class EventsController < ApplicationController
     end
   end
 
+  def edit
+    @event = Event.find(params[:id])
+  end
+
+  def update
+    event = Event.find(params[:id])
+    event.update(event_params)
+    redirect_to event_path(params[:id])
+  end
+
   def show
     @event = Event.find(params[:id])
     @participants = Participant.where(event_id: params[:id])
     @favorites = Favorite.where(event_id: params[:id])
     @entry_status = @event.entry_status(@participants)
+    gon.latitude = @event.latitude
+    gon.longitude = @event.longitude
   end
 
   private
