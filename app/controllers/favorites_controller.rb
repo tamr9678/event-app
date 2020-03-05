@@ -5,8 +5,7 @@ class FavoritesController < ApplicationController
   end
 
   def show
-    favorites = Favorite.where(user_id: current_user.id)
-    @events = favorites.map{|favorite| favorite.event}
+    @events =Event.includes(:participants).where(participants: {user_id: current_user.id}).order(created_at: :desc)
   end
 
   def destroy
