@@ -32,81 +32,31 @@
                   = current_event.favorites.count
     .main__event
       .main__event__title
-        人気イベント
+        お気に入りの多いイベント
       .main__event__contents
-        .main__event__contents__content
-          .main__event__contents__content__image
-            = image_tag '/images/rails-logo.png', size: "120x90"
-          .main__event__contents__content__detail
-            .main__event__contents__content__detail__title
-              = link_to "初めてのrails勉強会！！", "#"
-            .main__event__contents__content__detail__date
-              = icon('far', 'clock')
-              2020年2月22日
-            .main__event__contents__content__detail__place
-              = icon('fas', 'map-marker-alt')
-              東京都千代田区千代田１−１
-            .main__event__contents__content__detail__capacity
-              = icon('fas', 'user-friends')
-              18/20
-        .main__event__contents__content
-          .main__event__contents__content__image
-            = image_tag '/images/rails-logo.png', size: "120x90"
-          .main__event__contents__content__detail
-            .main__event__contents__content__detail__title
-              = link_to "初めてのrails勉強会！！", "#"
-            .main__event__contents__content__detail__date
-              = icon('far', 'clock')
-              2020年2月22日
-            .main__event__contents__content__detail__place
-              = icon('fas', 'map-marker-alt')
-              東京都千代田区千代田１−１
-            .main__event__contents__content__detail__capacity
-              = icon('fas', 'user-friends')
-              18/20
-        .main__event__contents__content
-          .main__event__contents__content__image
-            = image_tag '/images/rails-logo.png', size: "120x90"
-          .main__event__contents__content__detail
-            .main__event__contents__content__detail__title
-              = link_to "初めてのrails勉強会！！", "#"
-            .main__event__contents__content__detail__date
-              = icon('far', 'clock')
-              2020年2月22日
-            .main__event__contents__content__detail__place
-              = icon('fas', 'map-marker-alt')
-              東京都千代田区千代田１−１
-            .main__event__contents__content__detail__capacity
-              = icon('fas', 'user-friends')
-              18/20
-        .main__event__contents__content
-          .main__event__contents__content__image
-            = image_tag '/images/rails-logo.png', size: "120x90"
-          .main__event__contents__content__detail
-            .main__event__contents__content__detail__title
-              = link_to "初めてのrails勉強会！！", "#"
-            .main__event__contents__content__detail__date
-              = icon('far', 'clock')
-              2020年2月22日
-            .main__event__contents__content__detail__place
-              = icon('fas', 'map-marker-alt')
-              東京都千代田区千代田１−１
-            .main__event__contents__content__detail__capacity
-              = icon('fas', 'user-friends')
-              18/20
-        .main__event__contents__content
-          .main__event__contents__content__image
-            = image_tag '/images/rails-logo.png', size: "120x90"
-          .main__event__contents__content__detail
-            .main__event__contents__content__detail__title
-              = link_to "初めてのrails勉強会！！", "#"
-            .main__event__contents__content__detail__date
-              = icon('far', 'clock')
-              2020年2月22日
-            .main__event__contents__content__detail__place
-              = icon('fas', 'map-marker-alt')
-              東京都千代田区千代田１−１
-            .main__event__contents__content__detail__capacity
-              = icon('fas', 'user-friends')
-              18/20
+        - @popular_events.each do |current_event|
+          .main__event__contents__content
+            .main__event__contents__content__image
+              - if current_event.img.present?
+                = image_tag current_event.img.url , size: "120x90"
+              - else
+                = image_tag '/images/rails-logo.png', size: "120x90"
+            .main__event__contents__content__detail
+              .main__event__contents__content__detail__title
+                = link_to "#{current_event.title}", event_path(current_event.id)
+              .main__event__contents__content__detail__date
+                = icon('far', 'clock')
+                = current_event.event_start_at.strftime("%Y-%m-%d %H:%M")
+              .main__event__contents__content__detail__place
+                = icon('fas', 'map-marker-alt')
+                = current_event.place
+              .main__event__contents__content__detail__counter
+                .main__event__contents__content__detail__counter__capacity
+                  = icon('fas', 'user-friends')
+                  = current_event.participants.count
+                  \/
+                  = current_event.capacity
+                .main__event__contents__content__detail__counter__capacity
+                  = icon('fas', 'star')
+                  = current_event.favorites.count
 

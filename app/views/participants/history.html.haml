@@ -1,0 +1,34 @@
+= render 'shared/header'
+.container
+  .u-main
+    = render 'shared/side-menu'
+    .u-main__contents
+      .main___event
+        .main__event__title
+          過去に参加したイベント
+        .main__event__contents
+          - @events.each do |event|
+            .main__event__contents__content
+              .main__event__contents__content__image
+                - if event.img.present?
+                  = image_tag event.img.url , size: "120x90"
+                - else
+                  = image_tag '/images/rails-logo.png', size: "120x90"
+              .main__event__contents__content__detail
+                .main__event__contents__content__detail__title
+                  = link_to "#{event.title}", event_path(event.id)
+                .main__event__contents__content__detail__date
+                  = icon('far', 'clock')
+                  = event.event_start_at.strftime("%Y-%m-%d %H:%M")
+                .main__event__contents__content__detail__place
+                  = icon('fas', 'map-marker-alt')
+                  = event.place
+                .main__event__contents__content__detail__counter
+                  .main__event__contents__content__detail__counter__capacity
+                    = icon('fas', 'user-friends')
+                    = event.participants.count
+                    \/
+                    = event.capacity
+                  .main__event__contents__content__detail__counter__capacity
+                    = icon('fas', 'star')
+                    = event.favorites.count

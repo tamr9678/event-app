@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   def index
     @current_events = Event.order(created_at: :desc).limit(5)
+    @popular_events = Event.find(Favorite.group(:event_id).order('count(event_id) desc').limit(5).pluck(:event_id))
   end
 
   def new
@@ -23,6 +24,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @participants = Participant.where(event_id: params[:id])
     @favorites = Favorite.where(event_id: params[:id])
+    @entry_status = @event.entry_status(@participants)
   end
 
   private
