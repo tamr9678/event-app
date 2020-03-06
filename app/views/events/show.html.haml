@@ -31,15 +31,18 @@
         - if !Participant.exists?(user_id:current_user.id,event_id:@event.id)
           - case @entry_status
           - when 0 then
-            .event-show__join__btn.event-show__join__btn--off
-              イベント終了済み
+            .event-show__join__btn
+              = link_to "イベント情報を編集", edit_event_path(event_id: @event.id), method: :get
           - when 1 then
             .event-show__join__btn.event-show__join__btn--off
-              参加締め切り
+              イベント終了済み
           - when 2 then
             .event-show__join__btn.event-show__join__btn--off
-              定員オーバー
+              参加締め切り
           - when 3 then
+            .event-show__join__btn.event-show__join__btn--off
+              定員オーバー
+          - when 4 then
             .event-show__join__btn
               = link_to "参加する", participants_path(event_id: @event.id), method: :post
         - else
