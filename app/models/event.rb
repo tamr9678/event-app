@@ -1,6 +1,8 @@
 class Event < ApplicationRecord
   mount_uploader :img, ImgUploader
-
+  geocoded_by :place
+  after_validation :geocode, if: :place_changed?
+  
   # validation
   validates :title,          presence: true, length: {maximum: 50}
   validates :place,          presence: true, length: {maximum: 50}
@@ -16,15 +18,17 @@ class Event < ApplicationRecord
     self.event_start_at > self.expire_at
   end
 
-  def entry_status(participants)
-    if Time.current > self.event_start_at 
+  def entry_status(participants, current_user)
+    if self.organizer_id == current_user
       return 0
-    elsif Time.current > self.expire_at
+    elsif Time.current > self.event_start_at 
       return 1
-    elsif self.capacity <= participants.count
+    elsif Time.current > self.expire_at
       return 2
-    else
+    elsif self.capacity <= participants.count
       return 3
+    else
+      return 4
     end
   end
 
@@ -34,5 +38,6 @@ class Event < ApplicationRecord
   has_many :users, through: :participants
   has_many :favorites
   has_many :users, through: :favorites
+
 
 end
