@@ -1,0 +1,26 @@
+.kami{
+  display: inline-block;
+  height: 30px;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  background-color: $maincolor;
+  border-radius: 5px;
+    a{
+      color: white;
+      text-decoration: none;
+    }
+  &--last, &--first{
+    width: 70px;
+  }
+  &--next, &--prev{
+    width: 45px;
+  }
+  &--page{
+    width: 30px;
+  }
+}
+.kaminari{
+  display: block;
+  padding: 10px 0;
+}
