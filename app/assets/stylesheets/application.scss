@@ -9,6 +9,7 @@
 /* module */
 @import "./module/header";
 @import "./module/side-menu";
+@import "./module/kaminari";
 
 /* events */
 @import "./events/index";
@@ -20,3 +21,6 @@
 @import "./users/registration/complete";
 @import "./users/show";
 @import "./users/signout";
+
+/* search */
+@import "./search/index";
