@@ -1,9 +1,39 @@
-%p 検索
-= form_tag(search_index_path,:method => 'get') do
-  = text_field_tag :search
-  = submit_tag 'Search', :name => nil
+= render 'shared/header'
+.container
+  .search-main
+    .search-main__event
+      .search-main__event__title
+        イベントを検索する
+      .search-main__event__form
+        = form_with url: search_index_path do |form|
+          = form.text_field :search, class: "search-main__event__form__field"
+          = form.submit '検索', :name => nil, class: "search-main__event__form__btn"
+      .search-main__event__contents
+        - @events.each do |event|
+          .search-main__event__contents__content
+            .search-main__event__contents__content__image
+              - if event.img.present?
+                = image_tag event.img.url , size: "120x90"
+              - else
+                = image_tag '/images/rails-logo.png', size: "120x90"
+            .search-main__event__contents__content__detail
+              .search-main__event__contents__content__detail__title
+                = link_to "#{event.title}", event_path(event.id)
+              .search-main__event__contents__content__detail__date
+                = icon('far', 'clock')
+                = event.event_start_at.strftime("%Y-%m-%d %H:%M")
+              .search-main__event__contents__content__detail__place
+                = icon('fas', 'map-marker-alt')
+                = event.place
+              .search-main__event__contents__content__detail__counter
+                .search-main__event__contents__content__detail__counter__capacity
+                  = icon('fas', 'user-friends')
+                  = event.participants.count
+                  \/
+                  = event.capacity
+                .search-main__event__contents__content__detail__counter__capacity
+                  = icon('fas', 'star')
+                  = event.favorites.count
 
-%ul
-  - @events.each do |event|
-    %li
-      = event.title
+
+

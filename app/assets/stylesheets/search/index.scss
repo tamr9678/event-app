@@ -1,0 +1,92 @@
+.search-main{
+  height: 100%;
+  width: 100%;
+  margin: 10px 10px;
+  &__event{
+    height: 1000px;
+    width: 100%;
+    &__title{
+      display: block;
+      height: 40px;
+      width: 700px;
+      font-size: 30px;
+      line-height: 40px;
+      padding-left: 10px;
+      border-bottom: 3px solid $maincolor;
+    }
+    &__form{
+      display: block;
+      width: 100%;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      &__field{
+        display: inline-block;
+        height: 30px;
+        width: 300px;
+        margin-left: 10px;
+        padding-left: 10px;
+        font-size: 17px;
+      }
+      &__btn{
+        display: inline-block;
+        height: 40px;
+        width: 100px;
+        background-color: $maincolor;
+        border-radius: 5px;
+        margin-left: 20px;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+        color: white;
+      }
+    }
+    &__contents{
+      height: 600px;
+      width: 100%;
+      &__content{
+        display: block;
+        height: 100px;
+        width: 600px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-bottom: 1px solid gray;
+        &__image{
+          display: block;
+          height: 90px;
+          width: 120px;
+          margin: 5px 0;
+        }
+        &__detail{
+          display: block;
+          height: 100px;
+          width: calc(600px - 54px - 20px);
+          padding: 5px;
+          margin-left: 20px;
+          box-sizing: border-box;
+          &__title{
+            height: 25px;
+            font-size: 20px;
+            line-height: 30px;
+          }
+          &__date{
+            margin-top: 3px;
+          }
+          &__place{
+            margin-top: 3px;
+          }
+          &__counter{
+            margin-top: 3px;
+            &__capacity{
+              display: inline-block;
+              width: 100px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
