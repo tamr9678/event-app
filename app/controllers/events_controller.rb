@@ -34,7 +34,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @participants = Participant.where(event_id: params[:id])
     @favorites = Favorite.where(event_id: params[:id])
-    @entry_status = @event.entry_status(@participants,current_user.id)
+    if user_signed_in?
+      @entry_status = @event.entry_status(@participants,current_user.id)
+    end
     gon.latitude = @event.latitude
     gon.longitude = @event.longitude
   end
