@@ -15,7 +15,6 @@
             = form.check_box(:capacity_over, checked: @capacity_over)
         = form.submit "検索", class: "search-main__event__form__btn"
       .search-main__event__contents
-        = @capacity_over
         - @events.each do |event|
           .search-main__event__contents__content
             .search-main__event__contents__content__image
@@ -41,6 +40,7 @@
                 .search-main__event__contents__content__detail__counter__capacity
                   = icon('fas', 'star')
                   = event.favorites.count
+        = paginate @events
 
 
 
