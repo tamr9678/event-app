@@ -4,16 +4,16 @@
     .search-main__event
       .search-main__event__title
         イベントを検索する
-      = form_with url: search_index_path, class: "search-main__event__form" do |form|
+      = form_with(url: search_index_path, method: :get, local: true, class: "search-main__event__form") do |form|
         .search-main__event__form__conditions
           = form.text_field :search, class: "search-main__event__form__conditions__field"
           .search-main__event__form__conditions__check
             = form.label "過去開催されたイベントを表示する"
-            = form.check_box :past_event, as: :boolean
+            = form.check_box(:past_event, checked: @past_event)
           .search-main__event__form__conditions_check
             = form.label "定員越えのイベントを表示しない"
-            = form.check_box :capacity_over, as: :boolean
-        = form.submit '検索', :name => nil, class: "search-main__event__form__btn"
+            = form.check_box :capacity_over, :as => :boolean
+        = form.submit "検索", class: "search-main__event__form__btn"
       .search-main__event__contents
         - @events.each do |event|
           .search-main__event__contents__content
