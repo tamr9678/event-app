@@ -15,7 +15,7 @@ class EventsController < ApplicationController
       redirect_to root_path and return
     else
       @event.errors
-      @errors = @event.errors.full_messages 
+      @errors = @event.errors.full_messages
       render :new, params: @errors and return
     end
   end
