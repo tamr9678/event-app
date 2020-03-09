@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
   def index
     if params[:search]
-      @events =  Event.where(['title LIKE ?', "%#{params[:search]}%"])
+      @events =  Event.where(['title LIKE ? OR discription LIKE ?', "%#{params[:search]}%", "%#{params[:search]}%"])
       @past_event = ActiveRecord::Type::Boolean.new.cast(params[:past_event])
       @capacity_over = ActiveRecord::Type::Boolean.new.cast(params[:capacity_over])
       if !ActiveRecord::Type::Boolean.new.cast(params[:past_event])
