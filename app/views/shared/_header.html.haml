@@ -12,7 +12,7 @@
         %li.menu
           = link_to "マイページ", user_path(current_user.id), class: "header-menu"
         %li.menu
-          = link_to "イベント", new_event_path, class: "header-menu"
+          = link_to "イベントを開催", new_event_path, class: "header-menu"
       - else
         %li.menu
           = link_to "サインイン", new_user_session_path, class: "header-menu"

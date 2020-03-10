@@ -1,17 +1,17 @@
-%h2 Log in
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .field
-    = f.label :password
-    %br/
-    = f.password_field :password, autocomplete: "current-password"
-  - if devise_mapping.rememberable?
-    .field
-      = f.check_box :remember_me
-      = f.label :remember_me
-  .actions
-    = f.submit "Log in"
-= render "users/shared/links"
+.sub-container
+  .user-form
+    .user-form__title
+      サインイン
+    .user-form__contents
+      = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .user-form__contents__content
+          .user-form__contents__content__title
+            メールアドレス
+          .user-form__contents__content__form
+            = f.text_field :email, autofocus: true, autocomplete: "email", class: "user-content-form", placeholder: "example@email.com"
+        .user-form__contents__content
+          .user-form__contents__content__title
+            パスワード (英数字両方含む7字以上)
+          .user-form__contents__content__form
+            = f.text_field :password, autocomplete: "password", class: "user-content-form", placeholder: "example_password"
+        = f.submit "サインイン", class: "user-content-btn"
