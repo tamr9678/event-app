@@ -3,12 +3,14 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
+    sessions: 'users/sessions'
   }
 
   devise_scope :user do
-    get 'new', to: 'users/registrations#new'
+    get 'registrations/new', to: 'users/registrations#new'
     post 'create', to: 'users/registrations#create'
     get 'complete', to: 'users/registrations#complete'
+    get 'sessions/new', to: 'users/session#new'
   end
 
   resources :events
