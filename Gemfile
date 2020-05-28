@@ -67,7 +67,7 @@ gem 'font-awesome-sass'
 gem 'dotenv-rails'
 gem 'haml-rails'
 gem 'rails-i18n', '~> 5.1'
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 
 # device
 gem 'devise'
